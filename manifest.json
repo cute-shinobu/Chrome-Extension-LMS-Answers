@@ -1,0 +1,32 @@
+{
+    "name": "LMS-Answers",
+    "version": "1.0",
+    "description": "Show answers to Cambridge LMS",
+    "browser_action": {
+		"default_popup": "popup/popup.html"
+    },
+    "content_scripts": [{
+			"matches": [ "*://www.cambridgelms.org/*" ],
+			"js": ["js/show_answers.js"],
+			"run_at": "document_end",
+			"all_frames": true
+        }],
+    "options_ui": {
+        "page": "popup/popup.html",
+        "open_in_tab": false
+    },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "permissions": [  
+        "tabs",
+        "contextMenus",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "*://www.cambridgelms.org/*",
+        "activeTab",
+        "management"
+    ],
+    "manifest_version": 2
+}
